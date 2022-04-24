@@ -1,0 +1,22 @@
+from matplotlib import pylab as plt
+import pandas as pd
+S1 = pd.read_csv("AAPL.csv")
+print(S1.head())
+S2 = pd.read_csv("AMZN.csv")
+print(S2.head())
+S3 = pd.read_csv("MSFT.csv")
+print(S3.head())
+S1['Date'] = pd.to_datetime(S1.Date)
+S2['Date'] = pd.to_datetime(S2.Date)
+S3['Date'] = pd.to_datetime(S3.Date)
+#meanS1 = S1["Close"].mean()
+#meanS2 = S2["Close"].mean()
+#meanS3 = S3["Close"].mean()
+plt.figure("Stocks comparison of Apple, Amazon and Microsoft")
+plt.plot(S1["Date"], S1["Close"], label = "AAPL Stock Price")
+plt.plot(S2["Date"], S2["Close"], label = "AMZN Stock Price")
+plt.plot(S3["Date"], S3["Close"], label = "MSFT Stock Price")
+plt.xlabel("Years")
+plt.legend(loc = "upper left")
+plt.show()
+
